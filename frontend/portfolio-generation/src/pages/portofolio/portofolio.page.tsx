@@ -6,7 +6,7 @@ import PortofolioCard from '../../components/portofolio-card/portofolio-card.com
 import PortfolioCreateDto from '../../utils/interface/portofolio-create.interface';
 
 const PortofolioPage = () => {
-    const [requestTonnage, setrequestTonnage] = useState<number>(0);
+    const [requestTonnage, setrequestTonnage] = useState<string>('');
     const [showAlert, setShowAlert] = useState<boolean>(false);
     const [{ loading, error, response }, executePost] = useAxios<PortfolioDto[], PortfolioCreateDto>(
         {
@@ -17,7 +17,7 @@ const PortofolioPage = () => {
     );
     const mapPortofolios = () => response?.data?.map(portofolio => <PortofolioCard portofolio={portofolio} />)
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-        setrequestTonnage(parseInt(e.target.value));
+        setrequestTonnage(e.target.value);
     };
 
     const handleSubmit = (e: FormEvent) => {
@@ -32,7 +32,7 @@ const PortofolioPage = () => {
 
         try {
             executePost({
-                data: { requestedTons: requestTonnage },
+                data: { requestedTons: parseInt(requestTonnage) },
             });
         } catch (err) {
             console.error('Error submitting the tonnage:', err);

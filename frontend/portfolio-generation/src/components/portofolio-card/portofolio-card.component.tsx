@@ -17,7 +17,7 @@ function PortofolioCard(props: PortofolioCardProps) {
                     <Col>
                         <Card.Title className='mb-3'>{project.name}</Card.Title>
                         <p>{project.description}</p>
-                        <CardContentItemComponent title='Tonnage' value={tons.toString()} />
+                        <CardContentItemComponent title='Tonnage' value={tons.toFixed(2)} />
                     </Col>
                 </Row>
             </Card.Body>

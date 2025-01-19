@@ -19,7 +19,7 @@ const ProjectsPage = () => {
 
     />)
     return (
-        <div>
+        <div className='align-items-center justify-content-center d-flex flex-column'>
             <h2>Available Projects</h2>
             <a href="https://www.maddisoncreative.co.uk/wp-content/uploads/2021/03/inspired_graphic_design.jpg">(We need a UI Designer)</a>
             {data && mapProjects()}
