@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ProjectService } from './project.service';
 import ProjectDto from './dtos/project.dto';
 import PortfolioCreateDto from './dtos/portofolio-create.dto';
+import PortfolioDto from './dtos/portofolio.dto';
 
 @Controller('projects')
 export class ProjectController {
@@ -12,5 +13,8 @@ export class ProjectController {
         return this.projectService.listProjects()
     }
 
-
+    @Post()
+    generatePortfolio(@Body() data: PortfolioCreateDto): PortfolioDto[] {
+        return this.projectService.generatePortfolio(data)
+    }
 }

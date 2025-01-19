@@ -1,6 +1,6 @@
 export default class PortfolioDto {
     projectId: number
-    tonnage: number
+    tons: number
     imageUrl: string
     supplierName: string
     earliestDelivery: Date;
