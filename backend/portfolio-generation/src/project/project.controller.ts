@@ -13,7 +13,7 @@ export class ProjectController {
         return this.projectService.listProjects()
     }
 
-    @Post()
+    @Post('generatePortofolio')
     generatePortfolio(@Body() data: PortfolioCreateDto): PortfolioDto[] {
         return this.projectService.generatePortfolio(data)
     }
