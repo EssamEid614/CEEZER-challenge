@@ -5,8 +5,7 @@ import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class ProjectRepository {
-    getProjects(): ProjectDto[] {
-        return plainToInstance(ProjectDto, jsonData);
-    }
-
+  getProjects(): ProjectDto[] {
+    return plainToInstance(ProjectDto, jsonData);
+  }
 }

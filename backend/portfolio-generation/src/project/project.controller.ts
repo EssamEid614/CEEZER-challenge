@@ -6,15 +6,15 @@ import PortfolioDto from './dtos/portofolio.dto';
 
 @Controller('projects')
 export class ProjectController {
-    constructor(private readonly projectService: ProjectService) { }
+  constructor(private readonly projectService: ProjectService) {}
 
-    @Get()
-    listProjects(): ProjectDto[] {
-        return this.projectService.listProjects()
-    }
+  @Get()
+  listProjects(): ProjectDto[] {
+    return this.projectService.listProjects();
+  }
 
-    @Post('generatePortofolio')
-    generatePortfolio(@Body() data: PortfolioCreateDto): PortfolioDto[] {
-        return this.projectService.generatePortfolio(data)
-    }
+  @Post('generatePortofolio')
+  generatePortfolio(@Body() data: PortfolioCreateDto): PortfolioDto[] {
+    return this.projectService.generatePortfolio(data);
+  }
 }

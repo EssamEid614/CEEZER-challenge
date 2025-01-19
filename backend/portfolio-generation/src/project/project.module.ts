@@ -8,4 +8,4 @@ import { ProjectRepository } from './projects.repository';
   controllers: [ProjectController],
   providers: [ProjectService, ProjectRepository],
 })
-export class ProjectModule { }
+export class ProjectModule {}
