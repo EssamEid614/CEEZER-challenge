@@ -1,8 +1,8 @@
+import { Type } from "class-transformer";
+import ProjectDto from "./project.dto";
+
 export default class PortfolioDto {
-    projectId: number
-    tons: number
-    imageUrl: string
-    supplierName: string
-    earliestDelivery: Date;
-    pricePerTon: number;
+    @Type(() => ProjectDto)
+    project: ProjectDto;
+    tons: number;
 }

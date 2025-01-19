@@ -35,10 +35,111 @@ describe('generatePortfolio', () => {
     beforeEach(() => {
         projectRepoMock.getProjects.mockReturnValueOnce(mockedProjects)
     })
-    it.each([{ name: 'be able to calculate tons and return portfolios', input: { requestedTons: 60 }, expected: [{ "earliestDelivery": "2023-09-01", "imageUrl": "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_imageUrls/Fugitives/38bb530f5caf513be9f2a41f2d909f47-min.jpeg", "pricePerTon": 650, "projectId": 1, "supplierName": "Klom", "tons": 3 }, { "earliestDelivery": "2022-04-01", "imageUrl": "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_imageUrls/Mineralisation/ben-karpinski-ctWw2S9VqOI-unsplash-min.jpg", "pricePerTon": 200, "projectId": 2, "supplierName": "Klom", "tons": 6 }, { "earliestDelivery": "2024-01-01", "imageUrl": "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_imageUrls/Afforestation+reforestation/marita-kavelashvili-ugnrXk1129g-unsplash-min.jpg", "pricePerTon": 50.85, "projectId": 3, "supplierName": "EcoCarbon", "tons": 9 }, { "earliestDelivery": "2023-05-15", "imageUrl": "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_imageUrls/Climate+fund/climate-fund.png", "pricePerTon": 25, "projectId": 4, "supplierName": "Pure Planet", "tons": 15 }, { "earliestDelivery": "2023-12-01", "imageUrl": "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_imageUrls/Renewable+energy/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-min.jpg", "pricePerTon": 10.5, "projectId": 5, "supplierName": "Carbon Solutions", "tons": 27 }] }])(
+    it.each([{
+        name: 'be able to calculate tons and return portfolios', input: { requestedTons: 60 },
+        expected: [
+            {
+                project: {
+                    id: 1,
+                },
+                tons: 3
+            },
+            {
+                project: {
+                    id: 2,
+                },
+                tons: 6
+            },
+            {
+                project: {
+                    id: 3,
+                },
+                tons: 9
+            },
+            {
+                project: {
+                    id: 4,
+                },
+                tons: 15
+            },
+            {
+                project: {
+                    id: 5,
+                },
+                tons: 27
+            }
+        ]
+    },
+    {
+        name: 'be able to calculate tons and return portfolios when a recalculation is needed', input: { requestedTons: 500 }, expected: [
+            {
+                project: {
+                    id: 1,
+                },
+                tons: 15
+            },
+            {
+                project: {
+                    id: 2,
+                },
+                tons: 51.05263157894737
+            },
+            {
+                project: {
+                    id: 3,
+                },
+                tons: 76.57894736842105
+            },
+            {
+                project: {
+                    id: 4,
+                },
+                tons: 127.63157894736842
+            },
+            {
+                project: {
+                    id: 5,
+                },
+                tons: 229.73684210526315
+            }
+        ]
+    }, {
+        name: 'be able to calculate tons and return portfolios when the requested exceeds the maximum of all projects', input: { requestedTons: 30000 }, expected: [
+            {
+                project: {
+                    id: 1,
+                },
+                tons: 15
+            },
+            {
+                project: {
+                    id: 2,
+                },
+                tons: 900
+            },
+            {
+                project: {
+                    id: 3,
+                },
+                tons: 1500
+            },
+            {
+                project: {
+                    id: 4,
+                },
+                tons: 1100
+            },
+            {
+                project: {
+                    id: 5,
+                },
+                tons: 16000
+            }
+        ]
+    }])(
         'should $name',
         ({ input, expected }) => {
-            expect(service.generatePortfolio(input)).toEqual(expected);
+            expect(service.generatePortfolio(input)).toMatchObject(expected);
         }
     );
 
