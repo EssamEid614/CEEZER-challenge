@@ -13,16 +13,14 @@ describe('PortofolioCard Component', () => {
     };
 
     test('should render portofolio details correctly', () => {
-         render(<PortofolioCard portofolio={mockPortfolio as PortfolioDto} />);
+        render(<PortofolioCard portofolio={mockPortfolio as PortfolioDto} />);
 
-        
         const titleElement = screen.getByText('Project Alpha');
         const descriptionElement = screen.getByText('This is a test project description.');
         const tonnageElement = screen.getByText('123.46');
-        
-        
+
         expect(descriptionElement).toBeInTheDocument();
-        expect(titleElement).toBeInTheDocument();        
+        expect(titleElement).toBeInTheDocument();
         expect(tonnageElement).toBeInTheDocument();
     });
 });

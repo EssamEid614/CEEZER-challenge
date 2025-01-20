@@ -20,6 +20,12 @@
     - `npm run start:backend` to start backend dev server only.
     - `npm run start` to start both dev servers (preferred).
 
+### Running tests
+  - Similarly, To run the tests
+    - `npm run test:frontend` to run tests for the frontend only.
+    - `npm run test:backend` to run tests for the backend only.
+    - `npm run test` to start both frontend and backend (preferred).
+
 ### How it works 
  - Backend contains a single controller `ProjectsController` which has 2 `API`s. 1 for fetching the existing projects and 1 for generating the portofolios
  - There are tests covering the service behaviour with multiple scenarios(more on that in the room for improvement point).
