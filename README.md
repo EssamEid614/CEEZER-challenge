@@ -40,6 +40,8 @@
   - The UI needs to be proper .. apologies but i am not that good of a designer 🙈.
   - Since i dont fully understand the business, i am exposing all fields tho this shouldnt be the case and we should only expose from the `API` what we actually want exposed.
   - Sometimes, i felt confused on what to name some variables so excuse me for that. I need more information about the business to name stuff properly.
+  - Dockerize the entire thing. This would help when it gets to the deployment stage.
+  - There is a deprication warning on the frontend tests regarding the `act` usage (tho i am not using it). It would take a bit of time for me to investigate why this is happening but since the tests are already running fine and since i am short a bit on time i decided to leave it be.. for now.
 
 ### Assumptions made
  - We must get to a point where the shortfall hits 0, no matter how many loops this takes. I am assuming there is no limit to the number of redistbutions we can do.
