@@ -36,6 +36,8 @@
 
  ### Possible imrpovements 
   - More tests to cover other possible scenarios but with different data .. specifically if a shortfall happens on the first time and the second time as well. I tried to get a test case for that but wasn't able to unless the numbers given are changed.
+  - API validations, the API at this point doesn't validate the input. there should be api validations in place (maybe using class-validator even)
+  - More tests to cover the unexpected inputs specifically in the controller level.. this goes hand in hand with the point above about the API validation.
   - At this point, there is no coverage for the `checkIfAllFullyAssigned` however i still believe it should be covered by tests. It is technically tested within the `generatePortfolio` but when covered by tests as well it can easily grab bugs if introduced... since there is no difference than writing tests down and for the sake of saving time i refrained from adding tests here and settling for tests for the `generatePortofolio` function . 
   - The UI needs to be proper .. apologies but i am not that good of a designer 🙈.
   - Since i dont fully understand the business, i am exposing all fields tho this shouldnt be the case and we should only expose from the `API` what we actually want exposed.
