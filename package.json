@@ -1,0 +1,18 @@
+{
+  "name": "ceezer-challenge",
+  "version": "1.0.0",
+  "scripts": {
+    "start:backend": "npm --prefix backend/portfolio-generation start",
+    "start:frontend": "yarn --cwd frontend/portfolio-generation start",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "bootstrap:backend": "npm --prefix backend/portfolio-generation install",
+    "bootstrap:frontend": "yarn --cwd frontend/portfolio-generation install",
+    "bootstrap": "npm run bootstrap:backend && yarn bootstrap:frontend",
+    "test:backend": "npm --prefix backend/portfolio-generation test",
+    "test:frontend": "yarn --cwd frontend/portfolio-generation test",
+    "test": "npm run test:backend && yarn test:frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
